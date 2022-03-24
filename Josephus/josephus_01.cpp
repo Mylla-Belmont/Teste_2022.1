@@ -2,12 +2,12 @@
 
 using namespace std;
 
-void imprimir_vetor(int circulo[], int size, int escolhido) {
+void imprimir_vetor(int circulo[], int size, int inicio) {
     cout << "[";
     for (int i {0}; i < size; i++) {
         if (circulo[i] != 0)
             cout << " " << circulo[i];
-        if (i == escolhido)
+        if (i == inicio)
             cout << ">";
     }
     cout << " ]" << endl;
@@ -20,23 +20,23 @@ int procurar_vivo (int circulo[], int escolhido, int size) {
     return next;
 }
 
-void abordagem_1(int circulo[], int escolhido, int size) {
+void abordagem_1(int circulo[], int inicio, int size) {
     for (int i {0}; i < size; i++) {
-        imprimir_vetor(circulo, size, escolhido);
-        int next = procurar_vivo(circulo, escolhido, size);
+        imprimir_vetor(circulo, size, inicio);
+        int next = procurar_vivo(circulo, inicio, size);
         circulo[next] = 0;
-        escolhido = procurar_vivo(circulo, next, size);
+        inicio = procurar_vivo(circulo, next, size);
     }
 }
 
 int main() {
-    int  escolhido {0}, size {0};
-    cout << "Digite o tamanho e o escolhido:" << endl;
-    cin >> size  >> escolhido;
+    int  inicio {0}, size {0};
+    cout << "Digite o tamanho e o inicio:" << endl;
+    cin >> size  >> inicio;
     int  circulo[size] {};
 
     for (int i {0}; i < size; i++)
         circulo[i] = i+1;
     
-    abordagem_1(circulo, (escolhido-1), size);
+    abordagem_1(circulo, (inicio-1), size);
 }
