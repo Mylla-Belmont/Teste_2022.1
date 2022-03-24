@@ -30,7 +30,7 @@ void abordagem_1(int circulo[], int escolhido, int size) {
 }
 
 int main() {
-    int  escolhido {}, size {};
+    int  escolhido {0}, size {0};
     cout << "Digite o tamanho e o escolhido:" << endl;
     cin >> size  >> escolhido;
     int  circulo[size] {};
