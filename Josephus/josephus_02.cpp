@@ -1,31 +1,22 @@
-#include <iostream>
+#include <iostream>]
+#include <vector>
 
 using namespace std;
 
-void imprimir_vetor(int circulo[], int size, int inicio) {
-    cout << "[";
-    for (int i {0}; i < size; i++) {
-        if (circulo[i] != 0)
-            cout << " " << circulo[i];
-        if (i == inicio)
-            cout << ">";
-    }
-    cout << " ]" << endl;
+void imprimir_vetor(vector<bool> circulo, int inicio) {
+
 }
 
-int procurar_vivo (int circulo[], int escolhido, int size) {
-    int next = (escolhido + 1) % size;
-    while(circulo[next] == 0)
-        next = (next + 1) % size;
-    return next;
+int procurar_vivos(vector<bool> circulo, int inicio) {
+
 }
 
-void abordagem_1(int circulo[], int inicio, int size) {
+void marcacao(vector<bool> circulo, int inicio, int size) {
     for (int i {0}; i < size; i++) {
-        imprimir_vetor(circulo, size, inicio);
-        int next = procurar_vivo(circulo, inicio, size);
-        circulo[next] = 0;
-        inicio = procurar_vivo(circulo, next, size);
+        imprimir_vetor(circulo, inicio);
+        int morre {procurar_vivos(circulo, inicio)};
+        circulo[morre] = false;
+        inicio = procurar_vivos(circulo, morre);
     }
 }
 
@@ -33,10 +24,7 @@ int main() {
     int  inicio {0}, size {0};
     cout << "Digite o tamanho e o inicio:" << endl;
     cin >> size  >> inicio;
-    int  circulo[size] {};
+    vector<bool>  circulo(size, true);
 
-    for (int i {0}; i < size; i++)
-        circulo[i] = i+1;
-    
-    abordagem_1(circulo, (inicio-1), size);
+    marcacao(circulo, inicio, size);
 }

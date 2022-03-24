@@ -20,10 +20,10 @@ int procurar_vivo (int circulo[], int escolhido, int size) {
     return next;
 }
 
-void abordagem_1(int circulo[], int inicio, int size) {
+void remocao(int circulo[], int inicio, int size) {
     for (int i {0}; i < size; i++) {
         imprimir_vetor(circulo, size, inicio);
-        int next = procurar_vivo(circulo, inicio, size);
+        int next {procurar_vivo(circulo, inicio, size)};
         circulo[next] = 0;
         inicio = procurar_vivo(circulo, next, size);
     }
@@ -38,5 +38,5 @@ int main() {
     for (int i {0}; i < size; i++)
         circulo[i] = i+1;
     
-    abordagem_1(circulo, (inicio-1), size);
+    remocao(circulo, (inicio-1), size);
 }
