@@ -5,7 +5,8 @@
 using namespace std;
 
 void inverter_inplace(vector<int>& fila) {
-    for (int i = 0, j = (fila.size()-1); i < (fila.size()/2); i++, j--) {
+    int size {(int) fila.size()};
+    for (int i = 0, j = (size-1); i < (size/2); i++, j--) {
         int aux{fila[i]};
         fila[i] = fila[j];
         fila[j] = aux;
@@ -14,7 +15,8 @@ void inverter_inplace(vector<int>& fila) {
 
 vector<int> inverter_com_copia(const vector<int>& fila) {
     vector<int> novo_vector {};
-    for (int i = fila.size()-1; i >=0; i--)
+    int size {(int) fila.size()};
+    for (int i = size-1; i >=0; i--)
         novo_vector.push_back(fila[i]);
     return novo_vector;
 }
@@ -51,9 +53,10 @@ vector<int> clonar(const vector<int>& fila) {
 }
 
 void imprimir(vector<int> nome_vetor){
+    cout << "[";
     for (auto vetor : nome_vetor)
         cout << vetor << ", ";
-    cout << endl;
+    cout << "]" << endl;
 }
 
 int main() {
