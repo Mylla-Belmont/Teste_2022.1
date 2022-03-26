@@ -1,8 +1,17 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <iostream>
+#include <cstdlib>
+#include <vector>
+#include <ctime>
 
 using namespace std;
+
+int sortear(const vector<int>& fila) {
+    srand((unsigned) time(0));
+    int size {(int) fila.size()}, randomNumber {0};
+    randomNumber = (rand() % size);
+    return fila[randomNumber];
+}
 
 void inverter_inplace(vector<int>& fila) {
     int size {(int) fila.size()};
@@ -61,24 +70,14 @@ void imprimir(vector<int> nome_vetor){
 
 int main() {
     /*  FILTER  */
-    vector<int> clone = clonar({-51, 99, 1, -50, -1, -99});
-    imprimir(clone);
-    
-    vector<int> lista_homens = pegar_homens({-51, 99, 1, -50, -1, -99}); 
-    imprimir(lista_homens);
-    
-    vector<int> calmos = pegar_calmos({-51, 99, 1, -50, -1, -99});
-    imprimir(calmos);
-    
-    vector<int> mulheres_calmas = pegar_mulheres_calmas({-51, 99, 1, -50, -1, -99});
-    imprimir(mulheres_calmas);
-                                    
+    imprimir(clonar({-51, 99, 1, -50, -1, -99}));
+    imprimir(pegar_homens({-51, 99, 1, -50, -1, -99}));
+    imprimir(pegar_calmos({-51, 99, 1, -50, -1, -99}));
+    imprimir(pegar_mulheres_calmas({-51, 99, 1, -50, -1, -99}));                            
     /*  ACESSO  */
-    vector<int> inverso = inverter_com_copia({-51, 99, 1, -50, -1, -99});
-    imprimir(inverso);
-    
+    imprimir(inverter_com_copia({-51, 99, 1, -50, -1, -99}));
     vector<int> inverter {-51, 99, 1, -50, -1, -99};
     inverter_inplace(inverter);
     imprimir(inverter);
-    
+    cout << sortear({-51, 99, 1, -50, -1, -99}) << endl;
 }
