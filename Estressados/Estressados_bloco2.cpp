@@ -13,8 +13,18 @@ void imprimir(vector<int> nome_vetor){
     cout << "]" << endl;
 }
 
+vector<int> abandonados(const vector<int>& fila){
+    int size {(int) fila.size()};
+    vector<int> novo_vetor {};
+    for (int i {0}; i < size; i++)
+        for (int j {i}; j < size; j++)
+            if (fila[i] == fila[j])
+                novo_vetor.push_back(fila[i]);
+    return novo_vetor;
+}
+
 vector<int> diferentes(const vector<int>& fila){
-    vector<int> novo_vetor {}, cont {0};
+    vector<int> novo_vetor {};
     for (auto vet : fila) 
         if (vet > 0) 
             novo_vetor.push_back(vet);
@@ -124,4 +134,5 @@ int main() {
     /* FUNÇÕES */
     imprimir(exclusivos(vetor));              
     imprimir(diferentes(vetor));              
+    imprimir(abandonados(vetor));              
 }
