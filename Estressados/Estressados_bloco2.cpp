@@ -16,10 +16,7 @@ void imprimir(vector<int> nome_vetor){
 vector<int> abandonados(const vector<int>& fila){
     int size {(int) fila.size()};
     vector<int> novo_vetor {};
-    for (int i {0}; i < size; i++)
-        for (int j {i}; j < size; j++)
-            if (fila[i] == fila[j])
-                novo_vetor.push_back(fila[i]);
+    
     return novo_vetor;
 }
 
