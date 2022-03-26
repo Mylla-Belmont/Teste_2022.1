@@ -13,6 +13,14 @@ void imprimir(vector<int> nome_vetor){
     cout << "]" << endl;
 }
 
+vector<int> diferentes(const vector<int>& fila){
+    vector<int> novo_vetor {}, cont {0};
+    for (auto vet : fila) 
+        if (vet > 0) 
+            novo_vetor.push_back(vet);
+    return novo_vetor;
+}
+
 vector<int> exclusivos(const vector<int>& fila){
     vector<int> novo_vetor {fila};
     auto last = unique(novo_vetor.begin(), novo_vetor.end());  
@@ -115,4 +123,5 @@ int main() {
     imprimir(vetor);   
     /* FUNÇÕES */
     imprimir(exclusivos(vetor));              
+    imprimir(diferentes(vetor));              
 }
