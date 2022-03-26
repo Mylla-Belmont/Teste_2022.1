@@ -6,6 +6,20 @@
 
 using namespace std;
 
+void imprimir(vector<int> nome_vetor){
+    cout << "[ ";
+    for (auto vetor : nome_vetor)
+        cout << vetor << " ";
+    cout << "]" << endl;
+}
+
+vector<int> exclusivos(const vector<int>& fila){
+    vector<int> novo_vetor {fila};
+    auto last = unique(novo_vetor.begin(), novo_vetor.end());  
+    novo_vetor.erase(last, novo_vetor.end());  
+    return novo_vetor;
+}
+
 void swap(int *a, int *b) {
     int aux = *a; 
     *a = *b; 
@@ -83,15 +97,8 @@ vector<int> clonar(const vector<int>& fila) {
     return novo_vector;
 }
 
-void imprimir(vector<int> nome_vetor){
-    cout << "[ ";
-    for (auto vetor : nome_vetor)
-        cout << vetor << " ";
-    cout << "]" << endl;
-}
-
 int main() {
-    vector<int> vetor {-51, 99, 1, -50, -1, -99};
+    vector<int> vetor {-51, 99, 1, -50, -1, -99, 1, -50, -1};
     /*  FILTER  */
     imprimir(clonar(vetor));
     imprimir(pegar_homens(vetor));
@@ -105,5 +112,7 @@ int main() {
     embaralhar(vetor);
     imprimir(vetor);     
     ordenar(vetor);
-    imprimir(vetor);                            
+    imprimir(vetor);   
+    /* FUNÇÕES */
+    imprimir(exclusivos(vetor));              
 }
