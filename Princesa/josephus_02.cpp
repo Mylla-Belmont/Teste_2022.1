@@ -8,7 +8,7 @@ void imprimir_vetor(vector<bool> circulo, int inicio) {
 }
 
 int procurar_vivos(vector<bool> circulo, int inicio) {
-
+    
 }
 
 void marcacao(vector<bool> circulo, int inicio, int size) {
@@ -26,5 +26,5 @@ int main() {
     cin >> size  >> inicio;
     vector<bool>  circulo(size, true);
 
-    marcacao(circulo, inicio, size);
+    marcacao(circulo, (inicio-1), size);
 }
