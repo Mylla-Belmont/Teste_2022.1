@@ -7,7 +7,7 @@
 using namespace std;
 
 void imprimir(vector<int> nome_vetor){
-    cout << "[ ";
+    cout << "[";
     for (auto vetor : nome_vetor)
         cout << vetor << " ";
     cout << "]" << endl;
