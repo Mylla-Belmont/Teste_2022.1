@@ -13,9 +13,9 @@ void imprimir_vetor(int circulo[], int size, int inicio) {
     cout << " ]" << endl;
 }
 
-int tirar_mortos(int circulo[], int inicio, int next) {
+// int tirar_mortos(int circulo[], int inicio, int next) {
 
-}
+// }
 
 int procurar_vivo (int circulo[], int inicio, int size) {
     int next = (inicio + 1) % size;
@@ -28,7 +28,7 @@ void remocao(int circulo[], int inicio, int size) {
     for (int i {0}; i < size; i++) {
         imprimir_vetor(circulo, size, inicio);
         int next {procurar_vivo(circulo, inicio, size)};
-        tirar_mortos(circulo, inicio, next);
+        //tirar_mortos(circulo, inicio, next);
         inicio = procurar_vivo(circulo, next, size);
     }
 }
